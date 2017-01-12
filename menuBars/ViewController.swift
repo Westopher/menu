@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var timer = Timer()
     
     @IBAction func camera(_ sender: Any) {
-        print("camera")
+        
+        timer.invalidate()
+        
     }
     
     func processTimer() {
@@ -20,16 +23,14 @@ class ViewController: UIViewController {
         print("A second has passed")
         
     }
-    
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var timer = Timer()
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("processTimer"), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.processTimer), userInfo: nil, repeats: true)
         
     }
 
