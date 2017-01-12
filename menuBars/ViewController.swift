@@ -15,10 +15,22 @@ class ViewController: UIViewController {
         print("camera")
     }
     
+    func processTimer() {
+        
+        print("A second has passed")
+        
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        var timer = Timer()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("processTimer"), userInfo: nil, repeats: true)
+        
     }
 
     override func didReceiveMemoryWarning() {
